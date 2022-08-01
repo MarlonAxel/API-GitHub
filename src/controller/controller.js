@@ -14,7 +14,7 @@ module.exports = {
     async getInfoGitHub(request, response) {
 
         const {name} = request.params
-        
+
         await axios.get(`${api.baseUrl}/${name}/repos`).then(res=>{
             const repos = res.data
             console.log(`${api.baseUrl}/${name}/repos`);
@@ -24,7 +24,7 @@ module.exports = {
                 const subTitleCard = el.description
                 const dateRepository = el.created_at
 
-                if(el.language === 'C#'){
+                if(el.language === 'Javascript'){
 
                     items.push({
                         header:{
