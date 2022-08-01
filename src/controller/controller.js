@@ -24,7 +24,7 @@ module.exports = {
                 const subTitleCard = el.description
                 const dateRepository = el.created_at
 
-                if(el.language === 'Javascript'){
+                if(el.language === 'C#'){
 
                     items.push({
                         header:{
