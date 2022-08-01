@@ -1,0 +1,18 @@
+{
+  "name": "api-github",
+  "version": "1.0.0",
+  "description": "Api para buscar dados do github",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/server"
+  },
+  "author": "Marlon Axel",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19"
+  }
+}
