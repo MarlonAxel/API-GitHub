@@ -6,12 +6,16 @@ const api = {
     type: 'application/vnd.lime.media-link+json',
 }
 
-const items = [];
+var items = [];
 const options = [];
 
 module.exports = {
 
     async getInfoGitHub(request, response) {
+
+        //Limpa o array para não acumular dados repetidos a cada requisição
+        items.length > 0  ? items.length = 0 :items
+        
 
         const {name} = request.params
 
@@ -24,18 +28,20 @@ module.exports = {
                 const subTitleCard = el.description
                 const dateRepository = el.created_at
 
-                if(el.language === 'C#'){
 
+
+                if(el.language == 'C#'){
+                    
                     items.push({
                         header:{
                             type:api.type,
-                                value:{
-                                    title:titleCard,
-                                    text:subTitleCard,
-                                    type:"image/jpeg",
-                                    uri:image,
-                                    date: dateRepository
-                                }
+                            value:{
+                                title:titleCard,
+                                text:subTitleCard,
+                                type:"image/jpeg",
+                                uri:image,
+                                date: dateRepository
+                            }
                            },options})
 
                     items.sort((a,b)=>{
@@ -45,9 +51,10 @@ module.exports = {
                     });
                 }
             })
-
+            console.log({itemType: api.itemType,items});
             return response.json({itemType: api.itemType,items})
             
+            console.log({itemType: api.itemType,items});
         }).catch(err=>{
             console.log('Ocorreu algum erro na requisição:: ',err);
         })
